@@ -7,9 +7,9 @@ CLANG_DLINK="https://github.com/ZyCromerZ/Clang/releases/download/19.0.0git-2024
 CLANG_DIR="$WORKDIR/Clang/bin"
 
 # Kernel Source
-KERNEL_NAME="SigmaKernel"
-KERNEL_GIT="https://github.com/XeroMz69/Bumi-Kernel-Tree.git"
-KERNEL_BRANCH="ksu"
+KERNEL_NAME="YayangProjectKernel"
+KERNEL_GIT="https://github.com/YayangProject/Bumi-Kernel-Tree"
+KERNEL_BRANCH="lineage-21"
 KERNEL_DIR="$WORKDIR/$KERNEL_NAME"
 
 # Anykernel3
@@ -35,8 +35,8 @@ DTBO="$KERNEL_DIR/out/arch/arm64/boot/dtbo.img"
 MAKE_BOOTIMG="false"
 PERMISSIVE_BOOTIMG="false"
 
-export KBUILD_BUILD_USER="Xero"
-export KBUILD_BUILD_HOST="XeroMz"
+export KBUILD_BUILD_USER="YayangProject"
+export KBUILD_BUILD_HOST="YayangProject"
 
 cd $WORKDIR
 
@@ -58,11 +58,6 @@ git clone --depth=1 $KERNEL_GIT -b $KERNEL_BRANCH $KERNEL_DIR
 cd $KERNEL_DIR
 KERNEL_HEAD_HASH=$(git log --pretty=format:'%H' -1)
 
-# KernelSU
-echo "Add KernelSU"
-cd $KERNEL_DIR
-rm -rf KernelSU
-curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -s v0.9.5
 
 # Build Kernel
 echo "Started Compilation"

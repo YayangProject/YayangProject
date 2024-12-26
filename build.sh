@@ -99,12 +99,12 @@ if [ ! -e $IMAGE_GZ_DTB ]; then
 fi
 
 echo "Packing Kernel"
-ZIP_NAME="Sigma-AnyKernel3"
+ZIP_NAME="YayangProject-Kernel+"
 cd $WORKDIR
 unzip $ZIP_NAME.zip
-cd $WORKDIR/Sigma-AnyKernel3
+cd $WORKDIR/YayangProject-Kernel+
 cp $IMAGE_GZ_DTB .
-cp $DTB $WORKDIR/Sigma-AnyKernel3/dtb
+cp $DTB $WORKDIR/YayangProject-Kernel+/dtb
 cp $DTBO .
 Build Configs
 # Pack File

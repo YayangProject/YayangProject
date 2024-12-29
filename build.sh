@@ -8,8 +8,8 @@ CLANG_DIR="$WORKDIR/Clang/bin"
 
 # Kernel Source
 KERNEL_NAME="YayangProjectKernel"
-KERNEL_GIT="https://github.com/YayangProject/Bumi-Kernel-Tree"
-KERNEL_BRANCH="lineage-21"
+KERNEL_GIT="https://github.com/YayangProject/kernel_xiaomi_mt6768"
+KERNEL_BRANCH="gale-changes-only"
 KERNEL_DIR="$WORKDIR/$KERNEL_NAME"
 
 # Anykernel3
@@ -22,14 +22,14 @@ MAGISKBOOT="$WORKDIR/magiskboot/magiskboot"
 ORIGIN_BOOTIMG_DLINK="https://github.com/Jiovanni-dump/redmi_earth_dump/blob/missi_phone_global-user-13-TP1A.220624.014-V14.0.4.0.TCVMIXM-release-keys/boot.img"
 
 # Build
-DEVICE_CODENAME="earth"
-DEVICE_DEFCONFIG="earth_defconfig"
+DEVICE_CODENAME="gale"
+DEVICE_DEFCONFIG="gale_defconfig"
 DEVICE_DEFCONFIG_FILE="$KERNEL_DIR/arch/arm64/configs/$DEVICE_DEFCONFIG"
 
 IMAGE_GZ="$KERNEL_DIR/out/arch/arm64/boot/Image.gz"
 IMAGE_GZ_DTB="$KERNEL_DIR/out/arch/arm64/boot/Image.gz-dtb"
 DTB="$KERNEL_DIR/out/arch/arm64/boot/dts/mediatek/mt6768.dtb"
-DTBO_EARTH="$KERNEL_DIR/out/arch/arm64/boot/dts/mediatek/earth.dtbo"
+DTBO_EARTH="$KERNEL_DIR/out/arch/arm64/boot/dts/mediatek/gale.dtbo"
 DTBO="$KERNEL_DIR/out/arch/arm64/boot/dtbo.img"
 
 MAKE_BOOTIMG="false"
@@ -57,6 +57,11 @@ echo "Cloning Kernel Source "
 git clone --depth=1 $KERNEL_GIT -b $KERNEL_BRANCH $KERNEL_DIR
 cd $KERNEL_DIR
 KERNEL_HEAD_HASH=$(git log --pretty=format:'%H' -1)
+# KernelSU
+echo "Add KernelSU"
+cd $KERNEL_DIR
+rm -rf KernelSU
+curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -s v0.9.5
 
 
 # Build Kernel

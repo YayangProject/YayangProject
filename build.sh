@@ -9,7 +9,7 @@ CLANG_DIR="$WORKDIR/Clang/bin"
 # Kernel Source
 KERNEL_NAME="YayangProjectKernel"
 KERNEL_GIT="https://github.com/YayangProject/kernel_xiaomi_mt6768"
-KERNEL_BRANCH="gale-changes-only"
+KERNEL_BRANCH="lineage-21"
 KERNEL_DIR="$WORKDIR/$KERNEL_NAME"
 
 # Anykernel3
